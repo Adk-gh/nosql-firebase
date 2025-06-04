@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Firebase Form</title> 
+  <link rel="stylesheet" href="style.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+</head> 
+<body> 
+  <h1>Submit Your Info</h1> 
+  <form id="userForm"> 
+    <label>Name: <input type="text" name="name" required></label> 
+    <label>Email: <input type="email" name="email" required></label> 
+    <button type="submit">Submit</button> 
+  </form> 
+
+  <div class="entries-section">
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Search by name or email..." />
+      <label for="filterSelect" class="filter">Filter entries</label>
+      <select id="filterSelect">
+        <option value="all">All</option>
+        <option value="name">By Name</option>
+        <option value="email">By Email</option>
+      </select>
+    </div>
+
+    <div class="entries-header">Submitted Entries</div>
+    <div class="entries-list" id="entriesList">
+      <div class="no-entries">No entries yet. Submit your first entry!</div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button id="prevBtn">Previous</button>
+      <div id="pageIndicator"></div>
+      <button id="nextBtn">Next</button>
+    </div>
+  </div>
+
+  <div id="customAlertModal" class="modal-overlay"> 
+    <div class="modal-content"> 
+      <h2 id="modalTitle"></h2> 
+      <p id="modalMessage"></p> 
+      <button id="modalCloseButton">OK</button> 
+    </div> 
+  </div> 
+ 
+  <script src="script.js"></script>
+</body>
+</html>
